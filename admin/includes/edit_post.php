@@ -9,6 +9,7 @@ if(isset($_GET['p_id'])){
 			$edit_title = $row['post_title'];
 			$edit_author = $row['post_author'];
 			$edit_status = $row['post_status'];
+			$edit_post_cat_id = $row['post_cat_id'];
 			$edit_img = $row['post_img'];
 			$edit_tags = $row['post_tags'];
 			$edit_content = $row['post_content'];
@@ -48,17 +49,23 @@ if(empty($post_img)){
 		<input type="text" value="<?php echo $edit_title; ?>"  name="title" class="form-control" placeholder="Enter Post Title">
 	</div>
 	<div class="form-group">
-		<select name="post_category" class="form-control   ">
-			<option selected="true" disabled="true" value="n/a">Select Category</option>
+	<label for="categories">Categories</label>
+		<select name="post_category" class="form-control">
 		<?php 
-			$query = "SELECT * FROM categories ";			
-			$select_cat = mysqli_query($connection,$query);
-			confirm_query($select_cat);		
-		while($row = mysqli_fetch_assoc($select_cat)){
-			$cat_id = $row['cat_id'];
-			$cat_title = $row['cat_title'];
-		echo "<option value='$cat_id'>$cat_title</option>"; } ?>
-		</select>
+		$query = "SELECT * FROM categories ";			
+		$select_cat = mysqli_query($connection,$query);
+		confirm_query($select_cat);		
+
+	while($row = mysqli_fetch_assoc($select_cat)){
+		$cat_id = $row['cat_id'];
+		$cat_title = $row['cat_title'];
+
+		if($cat_id == $edit_post_cat_id){
+			echo "<option selected value='$cat_id'>$cat_title</option>";
+		} else {
+			echo "<option value='$cat_id'>$cat_title</option>"; } 
+		} ?>
+	</select>
 	</div>
 	<div class="form-group">
 		<label for="author">Post Author</label>
@@ -67,7 +74,16 @@ if(empty($post_img)){
 	<option value=""></option>
 	<div class="form-group">
 		<label for="post_status">Post Status</label>
-		<input type="text" value="<?php echo $edit_status; ?>"  name="post_status" class="form-control" placeholder="Enter Post Status">
+		<select name="post_status" class='form-control'>
+			<option selected value='<?php echo $edit_status; ?>'><?php echo $edit_status; ?></option>
+	  		<?php 
+				if($edit_status == 'published'){
+					echo "<option value='draft'>Draft</option>";
+				} else {
+					echo "<option value='published'>Published</option>";
+				}
+			?>
+		</select>
 	</div>
 	<div class="form-group">
 		<label for="post_img">Post Image</label><br>
