@@ -61,7 +61,7 @@ if(isset($_POST['publish_post'])){
 	</div>
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea name="post_content" class="form-control" placeholder="Write..." cols="30" rows="10"></textarea>
+		<textarea name="post_content" class="form-control" placeholder="Write..." cols="30" rows="10" id="editor"></textarea>
 	</div>
 	<div class="form-group">
 		<input type="submit" value="Publish" name="publish_post" class="btn btn-primary">

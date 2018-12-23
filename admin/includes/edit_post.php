@@ -97,7 +97,7 @@ if(empty($post_img)){
 	</div>
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea name="post_content" class="form-control" placeholder="Write..." cols="30" rows="10"><?php echo $edit_content; ?></textarea>
+		<textarea name="post_content" class="form-control" placeholder="Write..." cols="30" rows="10" id="editor"><?php echo $edit_content; ?></textarea>
 	</div>
 	<div class="form-group">
 		<input type="submit" value="Update" name="update_post" class="btn btn-primary">
