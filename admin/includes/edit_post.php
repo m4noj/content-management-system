@@ -40,9 +40,10 @@ if(empty($post_img)){
 	
 	$update_query_result = mysqli_query($connection,$update_post_query);
 	confirm_query($update_query_result);
-	header("Location: posts.php");
-	}
-?>
+	echo "<b>Post Updated.</b>"."  "."<a href='../post.php?p_id=$post_id'>View Post</a>  <b>or</b>  <a href='posts.php'>Edit More Posts</a>";
+	echo '</br></br>';
+} ?>
+ 
 <form action="" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="title">Post Title</label>
