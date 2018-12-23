@@ -8,16 +8,15 @@ if(isset($_POST['user_add'])){
 	$usr_role = $_POST['usr_role'];
 	$avatar = $_FILES['avatar']['name'];
 	$avatar_tmp = $_FILES['avatar']['tmp_name'];
-
 	move_uploaded_file($avatar_tmp,"../images/users/$avatar");
 
+// Insert into users table
 	$users_query = "INSERT INTO users (first_name, last_name, usr_email, username, password, avatar, usr_role) ";
 	$users_query .= "VALUES ('$first_name', '$last_name', '$usr_email', '$username', '$password', '$avatar','$usr_role' )";
 	$result_users_query = mysqli_query($connection,$users_query);
 	confirm_query($result_users_query);
 	echo "<b>User Created : </b>"." ". "<a href='users.php'>View Users</a>";	
-	echo '</br>';
-	echo '</br>';
+	echo '</br></br>';
 	}
 ?>
 <form action="" method="post" enctype="multipart/form-data">
