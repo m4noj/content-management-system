@@ -147,11 +147,15 @@
 <?php 
 // adding few more colums to charts 
 
+// Published posts column 
+$published_query = "SELECT * FROM posts WHERE post_status = 'published' ";
+$res_published_query = mysqli_query($connection,$published_query);
+$publish_counts = mysqli_num_rows($res_published_query);
+	
 // draft posts column 
 $draft_query = "SELECT * FROM posts WHERE post_status = 'draft' ";
 $res_draft_query = mysqli_query($connection,$draft_query);
 $draft_counts = mysqli_num_rows($res_draft_query);
-
 	
 // unapproved comments column
 $unapr_comment_query = "SELECT * FROM comments WHERE comment_status = 'Unapproved' ";
@@ -178,10 +182,10 @@ $subs_counts = mysqli_num_rows($res_subscribers);
 
 	// Inserting dynamic data into Chart from database
 
-	 $element_text = ['Active Posts','Draft Posts','Categories','Comments','Pending Comments','Users','Subscribers'];
-	 $element_count = [$post_counts,$draft_counts,$category_counts,$comment_counts,$unapr_counts,$user_counts,$subs_counts];
+	 $element_text = ['All Posts','Active Posts','Draft Posts','Categories','Comments','Pending Comments','Users','Subscribers'];
+	 $element_count = [$post_counts,$publish_counts,$draft_counts,$category_counts,$comment_counts,$unapr_counts,$user_counts,$subs_counts];
 
-	for($i = 0; $i < 7 ; $i++){
+	for($i = 0; $i < 8 ; $i++){
 			echo "['$element_text[$i]'" . "," . "$element_count[$i]],";	
 
 		}
