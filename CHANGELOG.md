@@ -8,3 +8,4 @@
 * added post update notification to 'edit post' page.
 * added update notification to 'edit user' page on updating user.
 * added post edit link to front navigation to direcly edit specific post if logged in.
+* added WYSIWYG editor to 'add post' and 'edit post' page.
