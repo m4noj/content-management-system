@@ -25,5 +25,7 @@ if(!isset($_SESSION['user_role'])){
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- Google charts API link  -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- editor script link -->
+	<script src="js/ckeditor/ckeditor.js"></script>
 </head>
 <body>
