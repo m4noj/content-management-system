@@ -45,7 +45,8 @@ if(empty($user_avatar)){
 	
 	$update_query_result = mysqli_query($connection,$update_user_query);
 	confirm_query($update_query_result);
-	header("Location: users.php");
+	echo "<b>User Updated.</b>"."  "."<a href='users.php'>View Users</a>";
+	echo '</br></br>';
 	}
 ?>
 
