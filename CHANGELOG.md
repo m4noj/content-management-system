@@ -10,3 +10,9 @@
 * added post edit link to front navigation to direcly edit specific post if logged in.
 * added WYSIWYG editor to 'add post' and 'edit post' page.
 * added alignment feature to WYSIWYG editor. 
+* added bulk options and add post button to posts page.
+* added link to post titles to view post in posts page.
+* added post status select option to add post page.
+* added post creation notice to add post page.
+* added dynamic personalization to Admin.
+* added validation to comments.
