@@ -21,8 +21,13 @@ if(isset($_POST['publish_post'])){
 	$post_query .= "VALUES ($post_category_id,'$post_title','$post_author',now(),'$post_img','$post_content','$post_tags','$post_status' )";
 	$publish_query = mysqli_query($connection,$post_query);
 	confirm_query($publish_query);
-	header("Location: posts.php");
-	}
+	
+	// fetch post id just created
+	$post_id = mysqli_insert_id($connection);
+	
+	echo "<b>Post Added.</b>"."  "."<a href='../post.php?p_id=$post_id'>View Post</a>  <b>or</b>  <a href='posts.php?source=add_post'>Add Another Post</a>";
+	echo '</br></br>';
+ }
 ?>
 <form action="" method="post" enctype="multipart/form-data">
 	<div class="form-group">
@@ -49,7 +54,11 @@ if(isset($_POST['publish_post'])){
 	</div>
 	<div class="form-group">
 		<label for="post_status">Post Status</label>
-		<input type="text" name="post_status" class="form-control" placeholder="Enter Post Status">
+		<select name="post_status" class="form-control">
+			<option selected disabled>Select</option>
+			<option value="draft">Draft</option>
+			<option value="published">Publish</option>
+		</select>		
 	</div>
 	<div class="form-group">
 		<label for="post_img">Post Image</label>
