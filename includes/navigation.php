@@ -20,7 +20,8 @@
 		while($row = mysqli_fetch_assoc($cat_row)){
 			$cat_title = $row['cat_title'];
 			echo "<li><a href='#'>{$cat_title}</a></li>";
-} ?>	
+} ?>
+	<li><a href='registration.php'>Register</a></li>			
 	<li><a href='admin'>Admin</a></li>			
 <?php 
 	if(isset($_SESSION['username'])){
