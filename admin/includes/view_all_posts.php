@@ -15,13 +15,31 @@ if(isset($_POST['checkArray'])){
 			$del_query = "DELETE FROM posts WHERE post_id = $checkId ";
 			$del_query_result = mysqli_query($connection,$del_query);
 			break;
+		case 'clone':
+			$clone_query = "SELECT * FROM posts WHERE post_id = $checkId ";
+			$clone_query_result = mysqli_query($connection,$clone_query);
+			
+			while($row = mysqli_fetch_assoc($clone_query_result)){
+				$post_title = $row['post_title'];
+				$post_author = $row['post_author'];
+				$post_cat_id = $row['post_cat_id'];
+				$post_status = $row['post_status'];
+				$post_img = $row['post_img'];
+				$post_tags = $row['post_tags'];
+				$post_date = $row['post_date'];
+				$post_content = $row['post_content'];
+			}
+				$post_query = "INSERT INTO posts (post_cat_id,post_title,post_author,post_date,post_img,post_content,post_tags,post_status) ";
+				$post_query .= "VALUES ($post_cat_id,'$post_title','$post_author',now(),'$post_img','$post_content','$post_tags','$post_status' )";
+				$copy_query = mysqli_query($connection,$post_query);
+				confirm_query($copy_query);
+			break;
 		default:
 			echo "<b>Please select an Option</b></br></br>";
 		break;
-		}
 	}
-}
-?>
+  }
+} ?>
 <form action="" method="post">
 <table class="table table-hover table-bordered">
 	<div id="bulk-opt-container" class="col-xs-4" >
@@ -30,6 +48,7 @@ if(isset($_POST['checkArray'])){
 			<option value="published">Publish</option>
 			<option value="draft">Draft</option>
 			<option value="delete">Delete</option>
+			<option value="clone">Clone</option>
 		</select>
 	</div>
 	<div class="col-xs-4">
@@ -54,7 +73,7 @@ if(isset($_POST['checkArray'])){
 	<tbody>
 <?php 
 	// Show posts from database
-	$post_query = "SELECT * FROM posts ";
+	$post_query = "SELECT * FROM posts ORDER BY post_id DESC";
 	$post_query_result = mysqli_query($connection,$post_query);
 		while($row = mysqli_fetch_assoc($post_query_result)){
 			$post_id = $row['post_id'];
