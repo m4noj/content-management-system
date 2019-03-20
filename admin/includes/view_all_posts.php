@@ -84,7 +84,7 @@ if(isset($_POST['checkArray'])){
 				<td class='text-center'>$post_comment_count</td>
 				<td class='text-center'>$post_date</td>
 				<td class='text-center'><a href='posts.php?source=edit_post&p_id=$post_id'>Edit</a></td>
-				<td class='text-center'><a href='posts.php?delete=$post_id'>Delete</a></td>
+				<td class='text-center'><a href='posts.php?delete=$post_id' onClick=\"javascript: return confirm('Are you sure you want to delete this Post?'); \">Delete</a></td>
 			</tr>";
 		} ?>
 	</tbody>
