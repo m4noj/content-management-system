@@ -16,3 +16,5 @@
 * added post creation notice to add post page.
 * added dynamic personalization to Admin.
 * added validation to comments.
+* added registration page.
+* modified post delete option.  
