@@ -16,7 +16,7 @@
 </h1>
 
 <?php 
-$query = "SELECT * FROM posts WHERE post_status = 'published' ";
+$query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC";
 $posts_row = mysqli_query($connection,$query);
 while($row = mysqli_fetch_assoc($posts_row)){
 	$post_id = $row['post_id'];
@@ -34,7 +34,7 @@ while($row = mysqli_fetch_assoc($posts_row)){
 		<?php echo $post_title; ?></a>
 </h2>
 <p class="lead">
-	by <a href="index.php">
+	by <a href="author_posts.php?author=<?php echo $post_author; ?>&p_id=<?php echo $post_id; ?>">
 		<?php echo $post_author; ?></a>
 </p>
 <p><span class="glyphicon glyphicon-time"></span> Posted on
