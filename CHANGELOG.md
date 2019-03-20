@@ -17,4 +17,7 @@
 * added dynamic personalization to Admin.
 * added validation to comments.
 * added registration page.
-* modified post delete option.  
+* modified post delete option.
+* added author page & related authors with posts.
+* added 'clone' post option to bulk options.
+* added loader animation to admin panel.
