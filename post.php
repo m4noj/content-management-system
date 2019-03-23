@@ -6,6 +6,12 @@
 // GET the post id and display that post 
 if(isset($_GET['p_id'])){
 	$post_id = $_GET['p_id'];
+	
+	// count post views
+	$view_query = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = $post_id";
+	$res_view_query = mysqli_query($connection,$view_query);
+	confirm_query($res_view_query);
+	
 	$query = "SELECT * FROM posts WHERE post_id = $post_id";
 	$result = mysqli_query($connection,$query);
 		while($row = mysqli_fetch_assoc($result)){
@@ -45,7 +51,7 @@ if(isset($_GET['p_id'])){
 		<?php echo $post_date; ?>
 	</p>
 	<hr>
-	<img class="img-responsive img-900x300" src="img/<?php echo $post_img;?>" alt="">
+	<img class="img-responsive img-900x300" src="images/<?php echo $post_img;?>" alt="">
 	<hr>
 	<p>
 		<?php echo $post_content; ?>

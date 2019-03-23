@@ -67,6 +67,7 @@ if(isset($_POST['checkArray'])){
 			<th class="text-center">Tags</th>
 			<th class="text-center">Comments</th>
 			<th class="text-center">Date</th>
+			<th class="text-center">Views</th>
 			<th class="text-center" colspan="2">Option</th>
 		</tr>
 	</thead>
@@ -85,37 +86,51 @@ if(isset($_POST['checkArray'])){
 			$post_tags = $row['post_tags'];
 			$post_comment_count = $row['post_comment_count'];
 			$post_date = $row['post_date'];
-		echo "
+			$post_views = $row['post_views'];
+			
+		echo <<<END
 			<tr>
 				<td class='text-center'><input type='checkbox' name='checkArray[]' class='checkBoxes' value='$post_id'></td>
 				<td class='text-center'>$post_id</td>
 				<td class='text-center'><a href='../post.php?p_id=$post_id'>$post_title</a></td>
-				<td class='text-center'>$post_author</td>";
+				<td class='text-center'>$post_author</td>
+			END;
 				$query = "SELECT * FROM categories WHERE cat_id = '$post_cat_id' ";			
 				$select_cat = mysqli_query($connection,$query);
 			while($row = mysqli_fetch_assoc($select_cat)){
 				$cat_id = $row['cat_id'];
 				$cat_title = $row['cat_title'];
 		echo "<td class='text-center'>$cat_title</td>"; }
-		echo "	<td class='text-center'>$post_status</td>
-				<td class='text-center'><img src='../img/$post_img' class='img-small img-responsive'></td>
+		echo <<<END
+				<td class='text-center'>$post_status</td>
+				<td class='text-center'><img src='../images/$post_img' class='img-small img-responsive'></td>
 				<td class='text-center'>$post_tags</td>
 				<td class='text-center'>$post_comment_count</td>
 				<td class='text-center'>$post_date</td>
+				<td class='text-center'><a href='posts.php?reset=$post_id' title='click to Reset'>$post_views</a></td>
 				<td class='text-center'><a href='posts.php?source=edit_post&p_id=$post_id'>Edit</a></td>
 				<td class='text-center'><a href='posts.php?delete=$post_id' onClick=\"javascript: return confirm('Are you sure you want to delete this Post?'); \">Delete</a></td>
-			</tr>";
+			</tr>
+			END;
 		} ?>
 	</tbody>
 </table>
 </form>
 
 <?php
-	// delete post
+// delete post
 if(isset($_GET['delete'])){
 	$post_del_id = $_GET['delete'];
 	$post_del_query = "DELETE FROM posts WHERE post_id = $post_del_id ";
 	$del_query_result = mysqli_query($connection,$post_del_query);
+	header("Location: posts.php");
+ }
+
+// reset post views
+if(isset($_GET['reset'])){
+	$reset_id = $_GET['reset'];
+	$reset_query = "UPDATE posts SET post_views = 0 WHERE post_id = $reset_id";
+	$res_reset_query = mysqli_query($connection,$reset_query);
 	header("Location: posts.php");
  }
 ?>
