@@ -21,3 +21,7 @@
 * added author page & related authors with posts.
 * added 'clone' post option to bulk options.
 * added loader animation to admin panel.
+* added feature to track post __views__ count.
+* added link to reset post views.
+* added pagination feature.
+* fixed broken image links.

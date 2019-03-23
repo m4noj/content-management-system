@@ -39,7 +39,7 @@ if(isset($_GET['p_id'])){
 		<?php echo $post_date; ?>
 	</p>
 	<hr>
-	<img class="img-responsive img-900x300" src="img/<?php echo $post_img;?>" alt="">
+	<img class="img-responsive img-900x300" src="images/<?php echo $post_img;?>" alt="">
 	<hr>
 	<p>
 		<?php echo $post_content; ?>

@@ -6,3 +6,11 @@
 	height: 64px;
 	width: 64px;
 }
+.pager li .active-link{
+	border: #000!important;
+	background: #000!important;
+	color: #fff!important;
+}
+.pager li a {
+	margin: .2rem;
+}

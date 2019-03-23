@@ -49,7 +49,7 @@ if($post_status == 'published'){
 </p>
 <hr>
 <a href="post.php?p_id=<?php echo $post_id; ?>">
-<img class="img-responsive img-900x300" src="img/<?php echo $post_img;?>" alt=""></a>
+<img class="img-responsive img-900x300" src="images/<?php echo $post_img;?>" alt=""></a>
 <hr>
 <p>
 	<?php echo $post_content; ?>
