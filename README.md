@@ -23,13 +23,14 @@ Instructions to get a copy of the project up and running on your local machine f
 ### Prerequisites
 
 * a **localhost** (**XAMPP** preferred) 
-* **Apache 2.4.35**
-* **PHP 7.2.11**
+* **Apache 2.4.37 (Unix)** 
+* **MariaDB 10.1.37** 
+* **PHP 7.3.0**
 
 
 ## Built With
 
-Built on **LAMP**  stack using **XAMPP.** with,
+Built on **LAMP** stack using **XAMPP.** with,
 
 * HTML5
 * Bootstrap
