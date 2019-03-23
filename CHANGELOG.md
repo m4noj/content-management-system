@@ -24,3 +24,4 @@
 * added feature to track post __views__ count.
 * added link to reset post views.
 * added pagination feature.
+* fixed broken image links.
