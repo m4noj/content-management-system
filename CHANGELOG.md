@@ -25,3 +25,4 @@
 * added link to reset post views.
 * added pagination feature.
 * fixed broken image links.
+* hashed passwords.  
