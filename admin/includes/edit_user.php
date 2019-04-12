@@ -11,7 +11,7 @@ if(isset($_GET['usr_id'])){
 			$edit_last_name = $row['last_name'];
 			$edit_email = $row['usr_email'];
 			$edit_username = $row['username'];
-			$edit_password = $row['password'];
+			$edit_password = $row['hash'];
 			$edit_usr_role = $row['usr_role']; 
 			$edit_avatar = $row['avatar']; 
 		}
@@ -25,10 +25,10 @@ if(isset($_POST['update_user'])){
 	$email = $_POST['usr_email'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$hash = password_hash($password,PASSWORD_DEFAULT,['cost' => 12]);
 	$usr_role = $_POST['usr_role'];
 	$user_avatar = $_FILES['avatar']['name'];
 	$user_avatar_tmp = $_FILES['avatar']['tmp_name'];
-
 	move_uploaded_file($user_avatar_tmp,"../images/users/$user_avatar");
 if(empty($user_avatar)){
 		$avatar_query = "SELECT * FROM users WHERE usr_id = $usr_id ";
@@ -40,7 +40,7 @@ if(empty($user_avatar)){
 	
 	$update_user_query = "UPDATE users SET ";
 	$update_user_query .= "first_name = '$first_name', last_name = '$last_name', usr_email = '$email', ";
-	$update_user_query .= "username = '$username', password = '$password',avatar = '$user_avatar',usr_role = '$usr_role'  ";
+	$update_user_query .= "username = '$username', password = '$password',avatar = '$user_avatar',usr_role = '$usr_role',hash = '$hash' ";
 	$update_user_query .= "WHERE usr_id = $usr_id ";
 	
 	$update_query_result = mysqli_query($connection,$update_user_query);

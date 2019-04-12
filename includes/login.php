@@ -15,12 +15,12 @@ while($usr_row = mysqli_fetch_assoc($result_login_query)){
 	 $db_usr_firstname = $usr_row['first_name'];
 	 $db_usr_lastname = $usr_row['last_name'];
 	 $db_username = $usr_row['username'];
-	 $db_usr_password = $usr_row['password'];
+	 $db_usr_hash = $usr_row['hash'];
 	 $db_usr_role = $usr_row['usr_role'];
 }	
 	// log in validation 
 	
-if($username === $db_username && $password === $db_usr_password){
+if($username === $db_username && password_verify($password,$db_usr_hash)){
 	$_SESSION['username'] = $db_username;
 	$_SESSION['firstname'] = $db_usr_firstname;
 	$_SESSION['lastname'] = $db_usr_lastname;

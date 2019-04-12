@@ -7,7 +7,8 @@ if(isset($_POST['submit'])){
 		$username =  mysqli_real_escape_string($connection,$_POST['username']);
 		$email =  mysqli_real_escape_string($connection,$_POST['email']);
 		$pass =  mysqli_real_escape_string($connection,$_POST['password']);
-		$reg_query = "INSERT INTO users(username,usr_email,password,usr_role) VALUES('$username','$email','$pass','subscriber') ";
+		$hash = password_hash($pass,PASSWORD_DEFAULT,['cost' => 12]);
+		$reg_query = "INSERT INTO users(username,usr_email,password,usr_role,hash) VALUES('$username','$email','$pass','subscriber','$hash') ";
 		$res_reg_query = mysqli_query($connection,$reg_query);
 		confirm_query($res_reg_query);
 		$msg = "Registered Successfully!";

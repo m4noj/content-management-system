@@ -13,7 +13,7 @@ while($row = mysqli_fetch_assoc($result_profile_qury)){
 	$usr_lastname = $row['last_name'];
 	$usr_email = $row['usr_email'];
 	$usr_name = $row['username'];
-	$usr_pwd = $row['password'];
+	$usr_pwd = $row['hash'];
 	$usr_role = $row['usr_role']; 
 	$usr_avatar = $row['avatar']; 
   }	
@@ -27,12 +27,12 @@ if(isset($_POST['update_profile'])){
 	$email = $_POST['usr_email'];
 	$user_name = $_POST['username'];
 	$user_pwd = $_POST['password'];
+	$hash = password_hash($user_pwd,PASSWORD_DEFAULT,['cost'=>12]);
 	$usr_role = $_POST['usr_role'];
-   
 	$user_avatar = $_FILES['avatar']['name'];
 	$user_avatar_tmp = $_FILES['avatar']['tmp_name'];
-
 	move_uploaded_file($user_avatar_tmp,"../images/users/$user_avatar");
+
 if(empty($user_avatar)){
 		$avatar_query = "SELECT * FROM users WHERE usr_id = $usr_id ";
 		$result_avatar_query = mysqli_query($connection,$avatar_query);
@@ -43,7 +43,7 @@ if(empty($user_avatar)){
 	
 $upd_profile_query  = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', ";
 $upd_profile_query .= "usr_email = '$email', avatar = '$user_avatar',usr_role = '$usr_role', ";
-$upd_profile_query .= "username = '$username', password = '$user_pwd' ";
+$upd_profile_query .= "username = '$username', password = '$user_pwd',hash = '$hash' ";
 $upd_profile_query .= "WHERE usr_id = $usr_id ";
 
 $update_query_result = mysqli_query($connection,$upd_profile_query);
