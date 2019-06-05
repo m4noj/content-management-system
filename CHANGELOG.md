@@ -26,3 +26,4 @@
 * added pagination feature.
 * fixed broken image links.
 * hashed passwords.  
+* added functionality to view users online.
