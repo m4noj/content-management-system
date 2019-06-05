@@ -1,4 +1,4 @@
-$(document).ready(function() {
+ $(document).ready(function() {
 	$('#bulkCheck').click(function() {
 		if (this.checked) {
 			$('.checkBoxes').each(function() {
@@ -17,3 +17,14 @@ $(document).ready(function() {
 		$(this).remove();
 	});
 });
+
+function loadUsersOnline(){
+	$.get("includes/functions.php?usrsonline=result",function(data){
+		$(".usrsonline").text(data);
+	});  
+}
+
+setInterval(function(){
+	loadUsersOnline();
+},500);
+
