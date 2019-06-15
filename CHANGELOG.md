@@ -27,3 +27,4 @@
 * fixed broken image links.
 * hashed passwords.  
 * added functionality to view users online.
+* modified post comment system. 
