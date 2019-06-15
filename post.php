@@ -89,10 +89,6 @@ if(isset($_POST['post_comment'])){
 		$post_comment_query = "INSERT INTO comments (comment_post_id, comment,comment_author,comment_email, comment_status, comment_date) ";
 		$post_comment_query .= "VALUES ($comment_post_id, '$comment', '$comment_author', '$comment_email','$comment_status',now() ) ";
 		$result_comment_query = mysqli_query($connection,$post_comment_query);
-		// increase the commment count for a new comment in posts table.
-		$cmt_count_query ="UPDATE posts SET post_comment_count = post_comment_count + 1 ";
-		$cmt_count_query .= "WHERE post_id = $post_id";
-		$cmt_count_result = mysqli_query($connection,$cmt_count_query);
 	} else {
 			echo "<script>alert('Fields cannot be empty')</script>";
 		}	

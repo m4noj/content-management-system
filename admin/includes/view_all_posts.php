@@ -84,7 +84,6 @@ if(isset($_POST['checkArray'])){
 			$post_status = $row['post_status'];
 			$post_img = $row['post_img'];
 			$post_tags = $row['post_tags'];
-			$post_comment_count = $row['post_comment_count'];
 			$post_date = $row['post_date'];
 			$post_views = $row['post_views'];
 			
@@ -105,7 +104,18 @@ if(isset($_POST['checkArray'])){
 				<td class='text-center'>$post_status</td>
 				<td class='text-center'><img src='../images/$post_img' class='img-small img-responsive'></td>
 				<td class='text-center'>$post_tags</td>
-				<td class='text-center'>$post_comment_count</td>
+			END;
+				$query = "SELECT * FROM comments WHERE comment_post_id = $post_id ";
+				$cmt_query = mysqli_query($connection,$query);
+				$post_comment_count = mysqli_num_rows($cmt_query);
+				if($post_comment_count > 0){
+				$row = mysqli_fetch_assoc($cmt_query);
+				$cmt_id = $row['comment_id'];
+				echo "<td class='text-center'><a href='post_comments.php?id=$post_id' title='click to view comments'>$post_comment_count</a></td>";
+				} else {
+					echo "<td class='text-center' title='No comments yet'>$post_comment_count</td>";
+				}
+		echo <<<END
 				<td class='text-center'>$post_date</td>
 				<td class='text-center'><a href='posts.php?reset=$post_id' title='click to Reset'>$post_views</a></td>
 				<td class='text-center'><a href='posts.php?source=edit_post&p_id=$post_id'>Edit</a></td>
