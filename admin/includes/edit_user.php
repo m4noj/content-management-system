@@ -15,7 +15,6 @@ if(isset($_GET['usr_id'])){
 			$edit_usr_role = $row['usr_role']; 
 			$edit_avatar = $row['avatar']; 
 		}
-	}
 	
 // Update user data into databse	
 if(isset($_POST['update_user'])){
@@ -48,6 +47,9 @@ if(empty($user_avatar)){
 	echo "<b>User Updated.</b>"."  "."<a href='users.php'>View Users</a>";
 	echo '</br></br>';
 	}
+} else {
+	header("Location: index.php");
+}
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
