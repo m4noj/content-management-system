@@ -1,12 +1,42 @@
 # Content Management System
 
 A Simple Bootstrap based Content management system written in Core PHP and Javascript.
-(beta version)
+
+*(beta version)*
 
 ## Overview
 
 This is a simple yet efficient content management system for creating, managing and modification of Digital and web content. It allows you to control and manage the content within your web site and personal Blogs without having much technical knowledge and programming skills.
 
+
+## Snapshots
+
+
+
+#### Admin Dash Board
+
+
+![Dash Board](https://github.com/m4noj/content-management-system/blob/beta/snaps/snap_dash.png)
+
+
+***
+
+
+#### Post Manager
+
+
+![Post Manager](https://github.com/m4noj/content-management-system/blob/beta/snaps/snap_posts.png)
+
+
+***
+
+
+#### Home
+
+
+![Home](https://github.com/m4noj/content-management-system/blob/beta/snaps/snap_home.png)
+
+***
 
 ## Features
 
@@ -18,16 +48,16 @@ This is a simple yet efficient content management system for creating, managing 
 * **Dashboard** - Analytics with Dynamic dashboard which keeps track of overall site content such as posts, users, comments etc.
 * **Charts** - Graphical representation of content counts and other data.
 
-
 ## Getting Started
+
 
 Instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
 
-### Prerequisites
+## Prerequisites
 
 * **Web Server OR localhost**
-* **Apache 2.4.48 (Unix)**
+* **Apache 2.4.48 (*Unix*)**
 * **OpenSSL 1.1.1k**
 * **mod_perl 2.0.11**
 * **Perl v5.32.1**
@@ -39,5 +69,6 @@ Instructions to get a copy of the project up and running on your local machine f
 
 ## Built With
 
-Built on **LAMP** stack.
+Built with :heart: on **LAMP** stack.
  
+

@@ -31,3 +31,4 @@
 * branched to beta(testing).
 * added snaps
 * minor fix
+* updated README.md
