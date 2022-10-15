@@ -30,3 +30,4 @@
 * modified post comment system.
 * branched to beta(testing).
 * added snaps
+* minor fix
