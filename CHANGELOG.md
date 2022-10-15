@@ -25,6 +25,8 @@
 * added link to reset post views.
 * added pagination feature.
 * fixed broken image links.
-* hashed passwords.  
+* hashed passwords.
 * added functionality to view users online.
-* modified post comment system. 
+* modified post comment system.
+* branched to beta(testing).
+* added snaps
