@@ -32,3 +32,4 @@
 * added snaps
 * minor fix
 * updated README.md
+* updated CHANGELOG
