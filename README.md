@@ -1,10 +1,12 @@
-# content-management-system
+# Content Management System
 
 A Simple Bootstrap based Content management system written in Core PHP and Javascript.
+(beta version)
 
 ## Overview
 
 This is a simple yet efficient content management system for creating, managing and modification of Digital and web content. It allows you to control and manage the content within your web site and personal Blogs without having much technical knowledge and programming skills.
+
 
 ## Features
 
@@ -13,29 +15,29 @@ This is a simple yet efficient content management system for creating, managing 
 * **Comments** - allows comments on posts and displays them on **admin** approval 
 * **Add Users** - Add and manage users, edit user profiles, manage user roles and permissions
 * **Admin Panel** - Admin panel for admin.
-* **Dashboard** - Dynamic dashboard which keeps track of overall site content such as posts, users, comments etc.
+* **Dashboard** - Analytics with Dynamic dashboard which keeps track of overall site content such as posts, users, comments etc.
 * **Charts** - Graphical representation of content counts and other data.
+
 
 ## Getting Started
 
 Instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
+
 ### Prerequisites
 
-* a **localhost** (**XAMPP** preferred) 
-* **Apache 2.4.37 (Unix)** 
-* **MariaDB 10.1.37** 
-* **PHP 7.3.0**
+* **Web Server OR localhost**
+* **Apache 2.4.48 (Unix)**
+* **OpenSSL 1.1.1k**
+* **mod_perl 2.0.11**
+* **Perl v5.32.1**
+* **MariaDB 10.4.19**
+* **libmysql - mysqlnd 8.0.7**
+* **PHP extension : mysqli, curl, mbstring**
+* **PHP 8.0.7**
 
 
 ## Built With
 
-Built on **LAMP** stack using **XAMPP.** with,
-
-* HTML5
-* Bootstrap
-* Javascript
-* jQuery
-* PHP
-* MySQL / MariaDB
+Built on **LAMP** stack.
  
